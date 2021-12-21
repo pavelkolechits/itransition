@@ -47,6 +47,8 @@ function checkEnterParams() {
   let set = new Set(allMovesArr);
   if (set.size !== allMovesArr.length) {
     continueGame("There should not be the same parameters!");
+  } else if (allMovesArr.length < 3){
+    continueGame("You must enter any parameters, >= 3 end the number of parameters must be odd!")
   } else if (allMovesArr.length % 2 === 0) {
     continueGame("The number of parameters must be odd!");
   } else {
