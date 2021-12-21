@@ -114,7 +114,7 @@ function startGame() {
   rl.question("Enter your move: ", (move) => {
     if (isValidEnterMove(move)) {
       console.log(
-        `The move is not correct.\nYou need to enter a number from "1" to "${allMovesArr.length}" to move or "0" to exit or "?" for help. `
+        `The move is not correct.\nYou need to enter a number from "1" to "${allMovesArr.length}" to move or "0" to exit or "?" for help`
       );
       return startGame();
     } else if (move === "0") {
