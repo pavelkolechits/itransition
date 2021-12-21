@@ -63,6 +63,18 @@ function showAllOption(inputParamsArray) {
   return `HMAC: ${hmac} \nAvailable moves: \n${info}0 - exit \n? - help`;
 }
 
+function getRuleTemplate(inputParamsArray) {
+  let rulesArr = ["draw"];
+  for (let i = 1; i < inputParamsArray.length; i++) {
+    if (i < inputParamsArray.length / 2) {
+      rulesArr.push("win");
+    } else {
+      rulesArr.push("lose");
+    }
+  }
+  return rulesArr;
+}
+
 function getObjectAllRules(inputParamsArray) {
   let templateVar, objAllRules = {},templateObj = {},
     rulesArr = getRuleTemplate(allMovesArr);
@@ -92,18 +104,6 @@ function showResultGame(move) {
     result = "Computer Win!";
   }
   return `Your move:${allMovesArr[move - 1]} \nComputer move:${moveComputer} \n${result} \nHMAC key:${secureRandom}`;
-}
-
-function getRuleTemplate(inputParamsArray) {
-  let rulesArr = ["draw"];
-  for (let i = 1; i < inputParamsArray.length; i++) {
-    if (i < inputParamsArray.length / 2) {
-      rulesArr.push("win");
-    } else {
-      rulesArr.push("lose");
-    }
-  }
-  return rulesArr;
 }
 
 function isValidEnterMove(move) {
